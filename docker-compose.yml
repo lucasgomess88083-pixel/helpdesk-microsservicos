@@ -102,6 +102,7 @@ services:
 
   redis:
     image: redis:7-alpine
+    user: redis                        # já nasce sem privilégios (com cap_drop ALL, a troca de usuário falha)
     command: ["redis-server", "--appendonly", "yes"]
     restart: unless-stopped
     volumes:
